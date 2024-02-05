@@ -1,0 +1,125 @@
+# Getting Started with Open Micro SaaS
+
+Welcome to the beginning of your journey with Open Micro SaaS, the ultimate Next.js-based toolkit designed to streamline the development of your SaaS project.
+
+This guide will walk you through the setup process, from cloning the repository to running your first set of integration tests. Let's get your project off the ground.
+
+## Installation
+
+**Step 1: Clone the repository**
+
+Start by cloning the Open Micro SaaS repository to your local machine:
+
+```bash
+git clone https://github.com/product-makers-hub/open-micro-saas.git
+```
+
+**Step 2: Install dependencies**
+
+Navigate to your project directory and install the necessary dependencies. This step ensures that your project has all the tools it needs to run smoothly.
+
+```bash
+cd open-micro-saas
+npm install
+```
+
+**Step 3: Configure Environment Variables**
+
+Set up your environment variables by copying the `.env.example` file to a new `.env` file. This file will store crucial configurations for your project.
+
+```bash
+cp .env.example .env  # Use 'copy' command on Windows
+```
+
+**Step 4: Set Up Next Auth Secret**
+
+Secure your application by generating a Next auth secret. This key adds an extra layer of security to your user authentication process.
+
+```bash
+openssl rand -base64 32
+```
+
+For detailed instructions, refer to [Next Auth's documentation](https://next-auth.js.org/configuration/options#description-1).
+
+**Step 5: Database Configuration**
+
+Input your database credentials in the `.env` file. The default `docker-compose.yml` is set with the following placeholders; adjust according to your preferences:
+
+```bash
+POSTGRES_HOST=127.0.0.1
+POSTGRES_PORT=6500
+POSTGRES_USER=your-user-that-you-want
+POSTGRES_PASSWORD=your-password-that-you-want
+POSTGRES_DB=your-db-that-you-want
+DATABASE_URL="postgresql://your-user-that-you-want:your-password-that-you-want@localhost:6500/your-db-that-you-want?schema=public"
+```
+
+Ensure consistency in the `DATABASE_URL` and individual Postgres environment variables.
+
+**Step 6: Initialize the Database**
+
+Use Docker to set up your PostgreSQL database. If you haven't installed Docker, [find the installation guide here](https://docs.docker.com/get-docker/).
+
+```bash
+npm run db:start
+```
+
+**Step 7: Launch the Development Server**
+
+Everything's set! Start the development server and begin building:
+
+```bash
+npm run dev
+```
+
+Your server will run on [http://localhost:3000](http://localhost:3000).
+
+## Testing
+
+Open Micro SaaS uses [Playwright](https://playwright.dev/) for robust integration testing, ensuring your application runs flawlessly.
+
+**Creating and Running Tests:**
+
+1. **Set Up the Test Database** (First-time setup)
+
+Start by creating your test database within Docker:
+
+```bash
+npm run test:db:start
+```
+
+2. **Prepare the Database**
+
+After creating the test database, run the migrations to set up your tables:
+
+```bash
+npm run test:db:prepare
+```
+
+3. **Execute the Tests**
+
+Run your integration tests to ensure everything works as expected:
+
+```bash
+npm run test
+```
+
+For a more interactive testing experience, launch the tests in UI mode:
+
+```bash
+npm run test:ui
+```
+
+This opens a browser window where you can watch your tests in action.
+
+**Note:** Remember to apply new migrations to your test database whenever you create them during development.
+
+---
+
+Congratulations! You've successfully set up Open Micro SaaS.
+
+This guide is just the beginning—explore our extensive documentation for more on customizing and enhancing your SaaS project.
+
+Encounter any roadblocks? Our community is here to help. Join the discussion and contribute to making Open Micro SaaS even better.
+
+Happy building!
