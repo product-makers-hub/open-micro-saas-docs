@@ -1,0 +1,70 @@
+# Stripe Configuration Tutorial
+
+Monetizing your SaaS application is a crucial step in turning your innovation into a sustainable business. Open Micro SaaS simplifies this process by integrating Stripe, a leading payment processing platform.
+
+This tutorial will guide you through setting up your Stripe account, configuring products with subscriptions, and integrating Stripe into your Open Micro SaaS application.
+
+## Step 1: Create Your Stripe Account
+
+Begin by registering for a Stripe account to manage your payments:
+
+1. Visit [Stripe's registration page](https://dashboard.stripe.com/register) and fill out the necessary information to create your account.
+2. Once your account is set up, familiarize yourself with the Stripe Dashboard. It's your central hub for payment processing, product management, and analytics.
+
+## Step 2: Configure Your Products and Subscriptions
+
+With Stripe, you can define various subscription plans for your users. Here’s how to set up your products and their corresponding subscription plans:
+
+1. **Navigate to the "Products" section** in your Stripe Dashboard.
+2. **Create a new product** for each of your service tiers (e.g., Basic, Pro, Teams). For each product, you can define one or more pricing plans, including details such as the billing interval and amount.
+3. **Enable Test Mode**: To safely test transactions without real payments, make sure to enable "Test Mode" in your Stripe Dashboard.
+
+## Step 3: Obtain Your Stripe API Keys
+
+For your Open Micro SaaS application to communicate with Stripe, you'll need to retrieve your API keys:
+
+1. Go to [API Keys](https://dashboard.stripe.com/apikeys) in the Stripe Dashboard.
+2. Note down the **Publishable Key** and **Secret Key**. Remember, you'll have separate keys for test and live modes.
+
+## Step 4: Update Your `.env` File
+
+With your API keys in hand, update the `.env` file in your Open Micro SaaS project to include the following entries:
+
+```env
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_publishable_key_here
+STRIPE_SECRET_KEY=your_secret_key_here
+STRIPE_ENDPOINT_SECRET=your_endpoint_secret_here
+```
+
+The `STRIPE_ENDPOINT_SECRET` is used for verifying webhook signatures. You can obtain it by setting up webhooks in your Stripe Dashboard, which is crucial for handling events like subscription renewals.
+
+## Step 5: Configure Payment Plans in Your Project
+
+Lastly, you need to link the Stripe products you’ve created with your Open Micro SaaS application. Update the `paymentsConfig` object in `src/config.ts` to reflect your pricing plans:
+
+```js
+export const paymentsConfig = {
+  title: "Choose the plan that suits you best",
+  description: "Start with a 14-day free trial. No credit card needed.",
+  defaultCurrency: "USD",
+  pricingPlans: [
+    {
+      id: 1,
+      name: "Basic",
+      price: 9.99,
+      priceId: "your_price_id_for_basic",
+      features: ["Feature 1", "Feature 2", "Feature 3"],
+      cta: "Start Basic",
+    },
+    // Include additional plans as needed
+  ],
+};
+```
+
+Replace `"your_price_id_for_basic"` with the actual `priceId` you obtained from the Stripe Dashboard for each of your subscription plans. The `priceId` is critical for processing subscriptions and must match the IDs configured in Stripe.
+
+## Conclusion
+
+By following these steps, you've successfully integrated Stripe into your Open Micro SaaS application, enabling you to offer subscription-based services to your users. Stripe’s flexibility and Open Micro SaaS’s configuration capabilities ensure you can adapt and grow your pricing strategy as your business evolves.
+
+For further customization and advanced features like coupons or trial periods, refer to Stripe’s comprehensive documentation. Happy coding, and here’s to the success of your SaaS business!

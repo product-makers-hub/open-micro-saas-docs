@@ -1,0 +1,37 @@
+# Email Configuration Tutorial
+
+Effective communication is key to the success of any SaaS platform. Whether it's for user authentication, notifications, or marketing purposes, integrating a reliable email service is crucial.
+
+This is a prerequisite to use the [magic links login feature](http://localhost:3000/tutorials/user-authentication), which is a secure and user-friendly way to authenticate users without requiring a password.
+
+This tutorial will guide you through configuring email services for your Open Micro SaaS application using Resend, a powerful email delivery service that offers a generous free tier and easy integration.
+
+## Step 1: Sign Up for Resend
+
+To get started, you'll need to create an account with Resend:
+
+1. Visit [Resend's registration page](https://resend.com/) and sign up for an account.
+2. Once your account is set up, navigate to the dashboard to create a new application or use an existing one.
+3. Under your application settings, locate and copy your **API Key**; you'll need this for the next step.
+
+## Step 2: Configure Your `.env` File
+
+With your Resend API Key in hand, it's time to update your Open Micro SaaS project's environment variables. Open the `.env` file in your project's root directory and add the following lines:
+
+```env
+# Resend
+RESEND_API_KEY=your_resend_api_key_here
+EMAIL_SERVER=your_resend_smtp_server_here
+```
+
+Replace `your_resend_api_key_here` with the actual API Key you obtained from Resend. The `EMAIL_SERVER` variable is set to Resend's SMTP server address, which is used to route your emails.
+
+## That's It!
+
+You've successfully configured email services for your Open Micro SaaS application using Resend. Your application is now equipped to send emails, whether for user authentication via magic links, notifications, or any other email-based communication you need to facilitate.
+
+## Conclusion
+
+Integrating email services into your Open Micro SaaS application is straightforward with Resend. By following these simple steps, you can enhance your application's communication capabilities, improving user engagement and retention. For further customization and to explore additional features offered by Resend, visit their [documentation](https://docs.resend.com/).
+
+Happy emailing, and here's to the success of your SaaS project!

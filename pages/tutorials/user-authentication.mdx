@@ -1,0 +1,104 @@
+# User Authentication Tutorial
+
+In this tutorial, we'll dive deep into the user authentication system of Open Micro SaaS, powered by the versatile [next-auth](https://next-auth.js.org/) library.
+
+Our goal is to guide you through setting up a secure and flexible authentication system that supports various methods, including magic links and Google OAuth, with the flexibility to add more providers as needed.
+
+## Introduction to Next-Auth
+
+Next-auth is an easy-to-use library for Next.js applications, offering a wide range of authentication strategies, from OAuth providers to email and even credentials-based authentication. It simplifies securing your application and managing user sessions.
+
+Open Micro SaaS leverages next-auth to provide a robust authentication framework that's both secure and adaptable to your needs.
+
+## Default Authentication Providers
+
+Out of the box, Open Micro SaaS comes configured with two popular authentication methods:
+
+- **Magic Link**: Allows users to log in using a single-use, time-limited link sent to their email.
+- **Google OAuth**: Enables users to sign in with their Google account for a quick and familiar authentication experience.
+
+Let's walk through setting up each of these methods.
+
+### Setting Up Magic Link Authentication
+
+1. **Configure Your Email SMTP**: Magic link authentication requires an SMTP server to send emails. We highly recommend [Resend](https://resend.com/overview) service which provides up to 3,000 emails per month free and is easy to use.
+
+Fill in your SMTP server details in the `.env` file:
+
+```env
+# Resend
+RESEND_API_KEY=your_resend_api_key
+EMAIL_SERVER=your_smtp_server
+```
+
+Of course, you are free to use any other SMTP server you prefer. In that case, you'll need to update the environment variables and provide the logic to send emails in the `src/libs` folder.
+
+2. **Enable Magic Link**: In your `authConfig`, ensure the Email provider is enabled:
+
+   ```js
+   providers: [
+     Providers.Email({
+       server: process.env.EMAIL_SERVER,
+       from: process.env.EMAIL_FROM,
+     }),
+   ];
+   ```
+
+### Setting Up Google OAuth Authentication
+
+1. **Obtain Google API Credentials**: Visit the [Google Cloud Console](https://console.cloud.google.com/), create a new project, and obtain OAuth 2.0 credentials (Client ID and Client Secret) for your application.
+
+2. **Configure OAuth Credentials**: Add your Google credentials to the `.env` file:
+
+   ```env
+   GOOGLE_CLIENT_ID=your_google_client_id
+   GOOGLE_CLIENT_SECRET=your_google_client_secret
+   ```
+
+## Extending Authentication Providers
+
+Next-auth is not limited to magic link and Google OAuth. You can integrate a wide array of OAuth providers, such as GitHub, Facebook, Twitter, and more. To add a new provider:
+
+1. **Choose a Provider**: Visit the [next-auth documentation](https://next-auth.js.org/configuration/providers) and select the provider you wish to add.
+
+2. **Obtain Necessary Credentials**: For OAuth providers, you'll typically need to create an application on the provider's platform and obtain client credentials.
+
+3. **Update Your `auth-provider` file**: Add the new provider to your configuration, similar to how we added Google OAuth.
+
+For example:
+
+```js
+// src/libs/auth/providers/auth-providers.ts
+import { getGoogleProvider } from "./google-provider";
+import { getEmailProvider } from "./email-provider";
+// create and import here the new provider as a "getMyProvider" function name.
+
+export const providers = [
+  getEmailProvider(),
+  getGoogleProvider(),
+  // add here the new provider
+];
+```
+
+Example of the email provider get function:
+
+```js
+// src/libs/auth/providers/email-provider.ts
+import EmailProvider from "next-auth/providers/email";
+
+import { mailConfig } from "@/config";
+
+export const getEmailProvider = () =>
+  EmailProvider({
+    server: process.env.EMAIL_SERVER,
+    from: mailConfig.fromAdmin,
+  });
+```
+
+Remember that each provider may require different configuration options, so be sure to consult the next-auth documentation for the specific provider you're adding.
+
+## Conclusion
+
+By leveraging next-auth, Open Micro SaaS offers a flexible and powerful authentication system that can easily be tailored to meet your application's needs. Whether you're using the default magic link and Google OAuth providers or extending functionality with additional OAuth providers, you're equipped to provide your users with a secure and convenient authentication experience.
+
+Happy coding, and stay secure!
