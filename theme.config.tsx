@@ -17,7 +17,7 @@ const config: DocsThemeConfig = {
   banner: {
     key: "pre-release.1",
     text: (
-      <a href="/roadmap" target="_blank" className="text-wrap	">
+      <a href="/roadmap" className="text-wrap	">
         🚧 Work in Progress! Click here to know more.
       </a>
     ),
