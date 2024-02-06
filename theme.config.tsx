@@ -14,6 +14,14 @@ const config: DocsThemeConfig = {
   footer: {
     text: "Open Micro SaaS Docs Template",
   },
+  banner: {
+    key: "pre-release.1",
+    text: (
+      <a href="/roadmap" target="_blank" className="text-wrap	">
+        🚧 Work in Progress! Click here to know more.
+      </a>
+    ),
+  },
 };
 
 export default config;
