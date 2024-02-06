@@ -9,9 +9,10 @@ const config: DocsThemeConfig = {
   // chat: {
   //   link: "https://discord.com",
   // },
-  docsRepositoryBase: "https://github.com/shuding/nextra-docs-template",
+  docsRepositoryBase:
+    "https://github.com/product-makers-hub/open-micro-saas-docs",
   footer: {
-    text: "Nextra Docs Template",
+    text: "Open Micro SaaS Docs Template",
   },
 };
 
