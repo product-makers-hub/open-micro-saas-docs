@@ -1,4 +1,4 @@
-# Getting Started with Open Micro SaaS
+# Lets start building your SaaS project with Open Micro SaaS
 
 Welcome to the beginning of your journey with Open Micro SaaS, the ultimate Next.js-based toolkit designed to streamline the development of your SaaS project.
 
@@ -8,11 +8,11 @@ This guide will walk you through the setup process, from cloning the repository 
 
 **Step 1: Create Your Project from the Template**
 
-Instead of directly cloning the Open Micro SaaS repository, you'll start by creating a new repository based on our GitHub template.
+Instead of directly cloning the Open Micro SaaS repository, you'll start by creating a new repository based on our GitHub template (instructions bellow).
 
 This approach allows you to maintain a separate repository for your project, making future updates and customizations easier to manage.
 
-1. **Navigate to the Open Micro SaaS Template Repository**: Go to `https://github.com/product-makers-hub/open-micro-saas` on GitHub.
+1. **Navigate to the Open Micro SaaS Template Repository**: Go to the [Open Micro SaaS public template on GitHub](https://github.com/product-makers-hub/open-micro-saas).
 2. **Use the Template**: Click the "Use this template" button near the top right of the repository page.
 3. **Set Up Your Repository**: Choose a name for your new repository and decide if it will be public or private. Then, click "Create repository from template" to generate your new project repository.
 
@@ -41,6 +41,7 @@ Once you've created your project repository from the Open Micro SaaS template, t
    ```
 
 Using `npm ci` instead of `npm install` not only ensures that you're working with the correct versions of dependencies but also typically results in faster installation times. It's particularly beneficial for continuous integration/continuous deployment (CI/CD) environments and when setting up a new development environment to match the project's specified dependencies precisely.
+
 **Step 3: Configure Environment Variables**
 
 Set up your environment variables by copying the `.env.example` file to a new `.env` file. This file will store crucial configurations for your project.
@@ -82,7 +83,19 @@ Use Docker to set up your PostgreSQL database. If you haven't installed Docker, 
 npm run db:start
 ```
 
-**Step 7: Launch the Development Server**
+Alternatively, if you have PostgreSQL installed locally or you want to use a remote database, you can set up your database manually and update the `DATABASE_URL` environment variable accordingly.
+
+**Step 7: Run the migrations**
+
+Run the migrations to set up the database schema:
+
+```bash
+npm run db:migrate:dev
+```
+
+This command will create the necessary tables and relationships in your database.
+
+**Step 8: Launch the Development Server**
 
 Everything's set! Start the development server and begin building:
 
