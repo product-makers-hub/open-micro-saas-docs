@@ -6,23 +6,41 @@ This guide will walk you through the setup process, from cloning the repository 
 
 ## Installation
 
-**Step 1: Clone the repository**
+**Step 1: Create Your Project from the Template**
 
-Start by cloning the Open Micro SaaS repository to your local machine:
+Instead of directly cloning the Open Micro SaaS repository, you'll start by creating a new repository based on our GitHub template.
 
-```bash
-git clone https://github.com/product-makers-hub/open-micro-saas.git
-```
+This approach allows you to maintain a separate repository for your project, making future updates and customizations easier to manage.
 
-**Step 2: Install dependencies**
+1. **Navigate to the Open Micro SaaS Template Repository**: Go to `https://github.com/product-makers-hub/open-micro-saas` on GitHub.
+2. **Use the Template**: Click the "Use this template" button near the top right of the repository page.
+3. **Set Up Your Repository**: Choose a name for your new repository and decide if it will be public or private. Then, click "Create repository from template" to generate your new project repository.
 
-Navigate to your project directory and install the necessary dependencies. This step ensures that your project has all the tools it needs to run smoothly.
+By using the Open Micro SaaS template, you instantly inherit all the foundational elements of our toolkit, ready to be customized and expanded to fit your unique SaaS solution.
 
-```bash
-cd open-micro-saas
-npm install
-```
+**Step 2: Install Dependencies**
 
+Once you've created your project repository from the Open Micro SaaS template, the next step is to set up your project environment by installing the necessary dependencies. This will ensure that all the tools and libraries needed for your SaaS application are correctly installed and ready to use.
+
+1. **Clone Your New Repository**: First, you need to clone the repository you just created from the Open Micro SaaS template to your local machine. Replace `your-username` and `your-repository-name` with your GitHub username and the name of your new repository:
+
+   ```bash
+   git clone https://github.com/your-username/your-repository-name.git
+   ```
+
+2. **Navigate to Your Project Directory**: Change into your project's directory which you've just cloned to your local machine:
+
+   ```bash
+   cd your-repository-name
+   ```
+
+3. **Install Dependencies**: Run the following command in your terminal to install the project dependencies:
+
+   ```bash
+   npm ci
+   ```
+
+Using `npm ci` instead of `npm install` not only ensures that you're working with the correct versions of dependencies but also typically results in faster installation times. It's particularly beneficial for continuous integration/continuous deployment (CI/CD) environments and when setting up a new development environment to match the project's specified dependencies precisely.
 **Step 3: Configure Environment Variables**
 
 Set up your environment variables by copying the `.env.example` file to a new `.env` file. This file will store crucial configurations for your project.
@@ -76,43 +94,9 @@ Your server will run on [http://localhost:3000](http://localhost:3000).
 
 ## Testing
 
-Open Micro SaaS uses [Playwright](https://playwright.dev/) for robust integration testing, ensuring your application runs flawlessly.
+This project comes with a suite of integration tests to ensure that everything is functioning as expected.
 
-**Creating and Running Tests:**
-
-1. **Set Up the Test Database** (First-time setup)
-
-Start by creating your test database within Docker:
-
-```bash
-npm run test:db:start
-```
-
-2. **Prepare the Database**
-
-After creating the test database, run the migrations to set up your tables:
-
-```bash
-npm run test:db:prepare
-```
-
-3. **Execute the Tests**
-
-Run your integration tests to ensure everything works as expected:
-
-```bash
-npm run test
-```
-
-For a more interactive testing experience, launch the tests in UI mode:
-
-```bash
-npm run test:ui
-```
-
-This opens a browser window where you can watch your tests in action.
-
-**Note:** Remember to apply new migrations to your test database whenever you create them during development.
+For more information on how to run these tests, refer to the [Testing](/testing) section of the documentation.
 
 ---
 

@@ -1,0 +1,73 @@
+# Testing with Open Micro SaaS
+
+Ensuring the reliability and functionality of your micro SaaS application is crucial for delivering a great user experience.
+
+Open Micro SaaS uses Playwright for integration testing, providing you with a powerful tool to automate testing across multiple browsers.
+
+This page will guide you through setting up your testing environment, writing tests, and executing them to ensure your application performs as expected.
+
+Note: If you have not set up your development environment yet, please refer to the [Getting Started](/getting-started) guide before proceeding with testing.
+
+## Setting Up Your Testing Environment
+
+Before running any tests, it’s essential to set up your testing environment properly. Follow these steps to prepare your project for testing with Playwright:
+
+1. **Test Database Configuration**: To run integration tests, you’ll need a separate test database to avoid affecting your production data:
+
+   ```bash
+   npm run test:db:start
+   ```
+
+   This command initializes a Docker container with a PostgreSQL database configured for testing.
+
+2. **Prepare the Database for Testing**: With your test database running, apply migrations to set up the necessary tables:
+
+   ```bash
+   npm run test:db:prepare
+   ```
+
+## Running Tests
+
+Once you’ve written your tests, you can run them using the following command:
+
+```bash
+npm run test
+```
+
+This command executes all tests located in the `tests` directory of your project. Playwright will launch the browsers, run the tests, and provide a detailed report of the results.
+
+### Running Tests in UI Mode
+
+For a more interactive testing experience, Playwright offers a UI mode that lets you see the tests running in real-time:
+
+```bash
+npm run test:ui
+```
+
+This mode is particularly useful for debugging and visually verifying test actions.
+
+## Writing Tests
+
+Playwright tests are written in JavaScript or TypeScript, allowing you to easily integrate them into your Next.js project. Here’s a simple example of a Playwright test:
+
+```javascript
+import { test, expect } from "@playwright/test";
+
+test("home page has Open Micro SaaS in title", async ({ page }) => {
+  await page.goto("/");
+  await expect(page).toHaveTitle(/Open Micro SaaS/);
+});
+```
+
+This test checks if the home page title contains "Open Micro SaaS". You can write similar tests to cover various aspects of your application, from user authentication to form submissions and API interactions.
+
+For more information about writing tests, refer to [testing philosophy](/testing-philosophy).
+
+## Additional Resources
+
+- **[Playwright Documentation](https://playwright.dev/docs/intro)**: Explore detailed documentation on writing and running tests with Playwright.
+- **[Next.js Testing](https://nextjs.org/docs/app/building-your-application/testing/playwright)**: Learn more about testing strategies and tools recommended for Next.js applications.
+
+## Troubleshooting Common Issues
+
+Encountering issues while running your tests? Check out our [Troubleshooting Guide](/troubleshooting) for common problems and their solutions. If you still need help, reach out to our community forum for assistance.
