@@ -6,9 +6,9 @@ const config: DocsThemeConfig = {
   project: {
     link: "https://github.com/product-makers-hub/open-micro-saas",
   },
-  // chat: {
-  //   link: "https://discord.com",
-  // },
+  chat: {
+    link: "https://discord.gg/BSn25bXyG9",
+  },
   docsRepositoryBase:
     "https://github.com/product-makers-hub/open-micro-saas-docs",
   footer: {

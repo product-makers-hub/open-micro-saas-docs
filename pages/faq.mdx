@@ -1,3 +1,85 @@
-# FAQ
+# Frequently Asked Questions (FAQ)
 
-This page is working in progress. It will be updated soon.
+Welcome to the Open Micro SaaS FAQ page! Here, we've compiled answers to some of the most common questions about using and contributing to Open Micro SaaS. Whether you're new to the platform or looking for specific information, we hope you'll find the answers you need.
+
+## Getting started questions
+
+### What is Open Micro SaaS?
+
+Open Micro SaaS is an open-source toolkit designed to help developers build and launch Micro SaaS (Software as a Service) applications more efficiently. It leverages Next.js and provides out-of-the-box features like user authentication, payment integration, and customizable landing pages.
+
+### Is Open Micro SaaS free forever?
+
+Yes, Open Micro SaaS is an open-source project built with the community in mind. It's free to use for both personal and commercial projects under its licensing terms.
+
+Our goal is to empower developers and entrepreneurs by providing a robust foundation for building SaaS applications without any cost barriers.
+
+As Open Micro SaaS evolves, it will remain free, with the possibility of optional paid support or additional services in the future.
+
+### Why not craft my own solution?
+
+Crafting your own solution from scratch provides total control and can be a great learning experience. However, it also involves **significant time and effort** to develop, test, and maintain core functionalities that are common across many SaaS applications.
+
+Open Micro SaaS offers a head start with pre-built features like authentication, payment integration, and a customizable landing page, allowing you to focus on developing the unique aspects of your application.
+
+By leveraging Open Micro SaaS, you can accelerate development, reduce costs, and benefit from community-driven improvements and best practices.
+
+### Why a Monolith with Next.js?
+
+Choosing a monolithic architecture for Open Micro SaaS, especially with Next.js, brings several advantages, particularly for early-stage projects and teams aiming for rapid development and deployment. Here's why this approach makes sense:
+
+- **Simplicity and Speed**: A monolithic architecture means that your frontend and backend are part of the same codebase. This simplifies development, testing, and deployment processes, allowing for quicker iterations and updates. With Next.js, integrating server-side logic (API routes) with your frontend is seamless, enabling rapid feature development and easier maintenance.
+
+- **Ease of Use**: For many startups and small teams, managing a single repository and deployment process is significantly easier than coordinating multiple services. This can be especially beneficial when resources are limited, and simplicity is key to moving fast.
+
+- **Integrated Tooling**: Next.js provides a comprehensive suite of tools out of the box, including image optimization, internationalization, and more, reducing the need for external services and simplifying the tech stack.
+
+- **Scalability within Reach**: While monoliths are sometimes critiqued for potential scaling issues, Next.js is designed to scale efficiently. Thanks to its server-side rendering and static generation capabilities, scaling a Next.js application to meet growing user demands is entirely feasible. Additionally, should the need arise, Next.js applications can be refactored into microservices as they grow, providing a clear path for evolution.
+
+- **Focus on Product**: Adopting a monolithic approach with Next.js allows teams to concentrate on building their product rather than managing the complexities of a distributed architecture. This can accelerate the path from concept to launch, ensuring that user feedback and product-market fit are prioritized.
+
+In summary, using a monolith with Next.js for Open Micro SaaS offers a pragmatic and efficient way to build and scale SaaS applications, keeping the focus on delivering value to users while maintaining the flexibility to evolve the architecture over time.
+
+### How do I set up Open Micro SaaS?
+
+Setting up Open Micro SaaS involves using our template repository, installing dependencies, and configuring environment variables. For detailed instructions, please refer to our [Getting Started](/getting-started) guide.
+
+## User Authentication questions
+
+### How does user authentication work in Open Micro SaaS?
+
+Open Micro SaaS uses the next-auth library for user authentication, supporting various strategies including OAuth providers and email magic links. For more information on configuring authentication, visit our [User Authentication Tutorial](/tutorials/user-authentication).
+
+## Customization questions
+
+### Can I customize the landing page?
+
+Yes! Open Micro SaaS comes with a pre-built landing page and a set of UI components that you can customize. You can easily change the content and style by updating the `landingPageContent` configuration object in `src/config.ts`. For more details, check out our [Landing Page Customization Tutorial](/tutorials/landing-page).
+
+## Stripe Integration questions
+
+### How do I set up Stripe for payment processing?
+
+To set up Stripe, you'll need to create a Stripe account, configure your products and subscriptions, and obtain your Stripe API keys. Update your `.env` file with these keys and configure the `paymentsConfig` object in `src/config.ts` to match your Stripe pricing plans. For step-by-step instructions, see our [Stripe Configuration Tutorial](/stripe-configuration).
+
+## Email Services questions
+
+### How do I configure email services?
+
+Open Micro SaaS recommends using Resend for email services. After creating an account on Resend and obtaining your API key, update the `.env` file with your Resend information. For detailed guidance, visit our [Email Configuration Tutorial](/email-configuration).
+
+## Troubleshooting & Support
+
+### I encountered an issue. How can I get help?
+
+If you run into a problem, we encourage you to first search our [GitHub Issues](https://github.com/your-repo/open-micro-saas/issues) to see if it has already been reported. If not, feel free to [create a new issue](https://github.com/your-repo/open-micro-saas/issues/new) and provide as much detail as possible to help us understand and address your concern.
+
+## Contributing questions
+
+### How can I contribute to Open Micro SaaS?
+
+We welcome contributions of all kinds, from code improvements and bug fixes to documentation updates. Please check our [Contributing Guide](/contribution-guide) for more information on how to get involved.
+
+---
+
+Still have questions? Don't hesitate to [contact us in Discord](https://discord.gg/BSn25bXyG9)to discuss with other users and contributors. Your feedback helps make Open Micro SaaS better for everyone!
