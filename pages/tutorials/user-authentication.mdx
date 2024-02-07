@@ -21,6 +21,8 @@ Let's walk through setting up each of these methods.
 
 ### Setting Up Magic Link Authentication
 
+Magic link authentication requires an SMTP server to send emails. We highly recommend [Resend](https://resend.com/overview) service, which provides up to 3,000 emails per month free and is easy to use.
+
 1. **Configure Your Email SMTP**: Magic link authentication requires an SMTP server to send emails. We highly recommend [Resend](https://resend.com/overview) service which provides up to 3,000 emails per month free and is easy to use.
 
 Fill in your SMTP server details in the `.env` file:
@@ -32,6 +34,8 @@ EMAIL_SERVER=your_smtp_server
 ```
 
 Of course, you are free to use any other SMTP server you prefer. In that case, you'll need to update the environment variables and provide the logic to send emails in the `src/libs` folder.
+
+To learn more deeply how to configure your SMTP server, please refer to the [email configuration tutorial](/tutorials/email-configuration).
 
 2. **Enable Magic Link**: In your `authConfig`, ensure the Email provider is enabled:
 
@@ -97,8 +101,8 @@ export const getEmailProvider = () =>
 
 Remember that each provider may require different configuration options, so be sure to consult the next-auth documentation for the specific provider you're adding.
 
-## Conclusion
+## Want to learn more about the features of Open Micro SaaS?
 
-By leveraging next-auth, Open Micro SaaS offers a flexible and powerful authentication system that can easily be tailored to meet your application's needs. Whether you're using the default magic link and Google OAuth providers or extending functionality with additional OAuth providers, you're equipped to provide your users with a secure and convenient authentication experience.
+Check out the [features](/features) for more tutorials and guides.
 
 Happy coding, and stay secure!

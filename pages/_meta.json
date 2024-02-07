@@ -1,9 +1,9 @@
 {
   "index": "Introduction",
   "getting-started": "Getting Started",
-  "testing": "Testing",
-  "tutorials": "Tutorials",
   "features": "Features",
+  "tutorials": "Tutorials",
+  "testing": "Testing",
   "development": "Development",
   "deployment": "Deployment",
   "roadmap": "Roadmap",

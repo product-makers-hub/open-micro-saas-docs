@@ -12,7 +12,7 @@ const config: DocsThemeConfig = {
   docsRepositoryBase:
     "https://github.com/product-makers-hub/open-micro-saas-docs",
   footer: {
-    text: "Open Micro SaaS Docs Template",
+    text: "Open Micro SaaS Docs",
   },
   banner: {
     key: "pre-release.1",
