@@ -1,3 +1,5 @@
+import { VideoPlayer } from "../../components/video-player";
+
 # Landing Page Customization Tutorial
 
 Welcome to the Landing Page Customization Tutorial for Open Micro SaaS! This guide will walk you through the process of personalizing your application's landing page using our pre-built UI components crafted with Tailwind CSS and DaisyUI.
@@ -12,7 +14,7 @@ These components, combined with the flexibility of Tailwind CSS and the ease of 
 
 ## Configuring Your Landing Page
 
-The heart of your landing page's customization lies within the `landingPageContent` object, located in `src/config.ts`. This object is structured to reflect the different sections of your landing page, including:
+The heart of your landing page's customization lies within the `landingPageContent` object, located in `src/config/landing-page-config.ts`. This object is structured to reflect the different sections of your landing page, including:
 
 - Hero Section
 - Features Overview
@@ -37,6 +39,8 @@ export const landingPageContent = {
 ```
 
 By editing this configuration object, you can easily adjust the text, images, and call-to-action links across your landing page to align with your brand and messaging.
+
+<VideoPlayer videoSrc="/assets/videos/features/landing-page.mov" />;
 
 ## Utilizing UI Components
 
