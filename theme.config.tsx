@@ -15,10 +15,10 @@ const config: DocsThemeConfig = {
     text: "Open Micro SaaS Docs",
   },
   banner: {
-    key: "pre-release.1",
+    key: "betta.1",
     text: (
       <a href="/roadmap" className="text-wrap	">
-        🚧 Work in Progress! Click here to know more.
+        ✨ Beta version! Click here to know more.
       </a>
     ),
   },

@@ -1,3 +1,70 @@
-# Deployment
+# Open Micro SaaS Deployment Guide
 
-This page is working in progress. It will be updated soon.
+🥳 Congratulations on reaching the deployment stage of your Open Micro SaaS project! This guide walks you through the necessary steps to deploy your application to production safely and efficiently. Ensure you've completed each item on the checklist below before proceeding with the deployment.
+
+## Deployment Checklist
+
+Before deploying your Open Micro SaaS application, confirm that you have completed the following steps:
+
+### 1. Vercel Account and GitHub Repository Configuration
+
+- **Create a Vercel Account**: If you haven't already, sign up for a Vercel account at [Vercel.com](https://vercel.com/).
+- **Connect Your GitHub Repository**: In your Vercel dashboard, connect your GitHub repository containing your Open Micro SaaS project. Vercel offers seamless integration for deploying Next.js applications.
+
+### 2. Stripe Configuration for Production
+
+- **Set Up Stripe for Production**: Ensure your Stripe account is switched from [test mode to production mode](https://stripe.com/docs/development/checklist). This involves:
+  - Updating API keys in your environment variables to production keys.
+  - Reviewing your Stripe dashboard to ensure all products and prices are correctly set up for live transactions.
+
+### 3. Email Service Provider Configuration
+
+- **Configure Resend for Production**: If you're using Resend for [email services](/tutorials/email-configuration), including magic link authentication:
+  - Verify your domain with Resend to ensure emails are delivered reliably.
+  - Update environment variables in your project to include your production API key from Resend.
+
+### 4. OAuth Login Providers for Production
+
+- **Update OAuth Callbacks**: For any OAuth providers (like Google, GitHub, etc.) used for authentication:
+  - Ensure that the callback URLs are updated to your production URLs in the OAuth provider's settings.
+  - Update client IDs and secrets in your environment variables to their production equivalents.
+
+### Additional Considerations
+
+#### Environment Variables
+
+- **Secure Your Environment Variables**: Double-check that all your environment variables (API keys, secrets, database URLs, etc.) are set for production. Use Vercel's environment variables feature to securely add these to your deployment.
+
+#### Database
+
+- **Migrate Your Database**: Perform any necessary migrations and ensure that your production database is accessible and correctly configured in your environment variables. This includes running the migrations for Prisma and ensuring the database URL is set to your production database.
+
+#### Performance and Security
+
+- **Optimize Assets**: Compress images and use Next.js's built-in Image component for optimized loading.
+- **SSL Certificate**: Ensure your domain has an SSL certificate configured for HTTPS. Vercel automatically provides this for domains managed through their service.
+- **Review Security Settings**: Implement security headers and review your application for common security vulnerabilities.
+
+#### Testing
+
+- **Perform End-to-End Testing**: Conduct thorough testing in a production-like environment to catch any issues that might not have appeared during development.
+
+#### Monitoring and Analytics
+
+- **Set Up Monitoring Tools**: Implement monitoring and error tracking tools, such as Sentry, LogRocket, or Datadog, to keep an eye on your application's health and performance.
+- **Integrate Analytics**: Configure Google Analytics or a similar service to track user engagement and gather insights on how your application is used.
+
+## Deploying Your Application
+
+With the checklist completed, you're ready to deploy your Open Micro SaaS application:
+
+1. **Push Your Final Changes**: Make sure all changes are committed and pushed to your GitHub repository.
+2. **Trigger a Deployment in Vercel**: Vercel automatically triggers a deployment when changes are pushed to your connected repository. Alternatively, you can manually deploy through the Vercel dashboard.
+3. **Monitor Your Deployment**: Use Vercel's dashboard to monitor the deployment process and address any issues that arise.
+
+## Post-Deployment
+
+- **Verify Functionality**: Once deployed, thoroughly test your application to ensure all features work as expected.
+- **Announce Your Launch**: Share your newly deployed application with your target audience and gather feedback for future improvements.
+
+Congratulations! Your Open Micro SaaS application is now live. Remember, deployment is not the end of the journey. Continuous monitoring, feedback collection, and iterative improvements are key to the long-term success of your project.
