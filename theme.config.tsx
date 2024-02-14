@@ -14,6 +14,9 @@ const config: DocsThemeConfig = {
   footer: {
     text: "Open Micro SaaS Docs",
   },
+  sidebar: {
+    defaultMenuCollapseLevel: 1,
+  },
   banner: {
     key: "betta.1",
     text: (
