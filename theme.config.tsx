@@ -16,6 +16,12 @@ const config: DocsThemeConfig = {
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,
+    titleComponent({ title }) {
+      if (title === "Premium") {
+        return <>🚀 {title}</>;
+      }
+      return <>{title}</>;
+    },
   },
   banner: {
     key: "betta.1",
