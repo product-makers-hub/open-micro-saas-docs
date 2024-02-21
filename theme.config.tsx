@@ -1,5 +1,6 @@
 import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
+import { useConfig } from "nextra-theme-docs";
 
 const config: DocsThemeConfig = {
   logo: <span>Open Micro SaaS</span>,
@@ -32,7 +33,11 @@ const config: DocsThemeConfig = {
     ),
   },
   useNextSeoProps() {
+    const { frontMatter } = useConfig();
+
     return {
+      title: frontMatter.title || "Open Micro SaaS",
+      description: frontMatter.description || "Open Micro SaaS",
       additionalLinkTags: [
         {
           href: "favicon/apple-icon-180x180.png",
