@@ -15,31 +15,31 @@ This guide will walk you through the setup process, from cloning the repository 
 
 Instead of directly cloning the Open Micro SaaS repository, you'll start by creating a new repository based on our GitHub template (instructions bellow).
 
-This approach allows you to maintain a separate repository for your project, making future updates and customizations easier to manage.
+The easiest way to use this template, is running:
+
+```bash
+npx create-next-app -e https://github.com/product-makers-hub/open-micro-saas
+```
+
+This script will create a new Next.js project using the Open Micro SaaS template. You are good to go to step 2!
+
+If you prefer to do it manually, follow these steps:
 
 1. **Navigate to the Open Micro SaaS Template Repository**: Go to the [Open Micro SaaS public template on GitHub](https://github.com/product-makers-hub/open-micro-saas).
 2. **Use the Template**: Click the "Use this template" button near the top right of the repository page.
 3. **Set Up Your Repository**: Choose a name for your new repository and decide if it will be public or private. Then, click "Create repository from template" to generate your new project repository.
 
-By using the Open Micro SaaS template, you instantly inherit all the foundational elements of our toolkit, ready to be customized and expanded to fit your unique SaaS solution.
-
 **Step 2: Install Dependencies**
 
 Once you've created your project repository from the Open Micro SaaS template, the next step is to set up your project environment by installing the necessary dependencies. This will ensure that all the tools and libraries needed for your SaaS application are correctly installed and ready to use.
 
-1. **Clone Your New Repository**: First, you need to clone the repository you just created from the Open Micro SaaS template to your local machine. Replace `your-username` and `your-repository-name` with your GitHub username and the name of your new repository:
-
-   ```bash
-   git clone https://github.com/your-username/your-repository-name.git
-   ```
-
-2. **Navigate to Your Project Directory**: Change into your project's directory which you've just cloned to your local machine:
+1. **Navigate to Your Project Directory**: Change into your project's directory which you've just cloned to your local machine:
 
    ```bash
    cd your-repository-name
    ```
 
-3. **Install Dependencies**: Run the following command in your terminal to install the project dependencies:
+2. **Install Dependencies**: Run the following command in your terminal to install the project dependencies:
 
    ```bash
    npm ci
@@ -63,7 +63,7 @@ Secure your application by generating a Next auth secret. This key adds an extra
 openssl rand -base64 32
 ```
 
-For detailed instructions, refer to [Next Auth's documentation](https://next-auth.js.org/configuration/options#description-1).
+For detailed instructions and alternatives, refer to [Next Auth's documentation](https://next-auth.js.org/configuration/options#description-1).
 
 **Step 5: Database Configuration**
 
@@ -88,7 +88,12 @@ Use Docker to set up your PostgreSQL database. If you haven't installed Docker, 
 npm run db:start
 ```
 
-Alternatively, if you have PostgreSQL installed locally or you want to use a remote database, you can set up your database manually and update the `DATABASE_URL` environment variable accordingly.
+As alternative, you can use the following options to set up your database without Docker:
+
+1. To use a remote database.
+2. To use a local [PostgreSQL installation](https://www.postgresql.org/) in your machine.
+
+Make sure to update the `DATABASE_URL` in your `.env` file accordingly if you choose one of these options.
 
 **Step 7: Run the migrations**
 
