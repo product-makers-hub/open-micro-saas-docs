@@ -29,7 +29,17 @@ RESEND_API_KEY=your_resend_api_key_here
 EMAIL_SERVER=your_resend_smtp_server_here
 ```
 
-Replace `your_resend_api_key_here` with the actual API Key you obtained from Resend. The `EMAIL_SERVER` variable is set to Resend's SMTP server address, which is used to route your emails.
+Replace `your_resend_api_key_here` with the actual API Key you obtained from Resend.
+
+The `EMAIL_SERVER` variable is set to Resend's SMTP server address, which is used to route your emails.
+
+Follow this structure:
+
+```env
+EMAIL_SERVER=smtps://resend:YOUR_API_KEY@smtp.resend.com:465
+```
+
+Note: We use the `EMAIL_SERVER` for the Auth.js email provider and the `RESEND_API_KEY` for the sending other kinds of emails.
 
 ## That's It!
 
@@ -38,5 +48,9 @@ You've successfully configured email services for your Open Micro SaaS applicati
 ## Want to learn more about the features of Open Micro SaaS?
 
 Check out the [features](/features) for more tutorials and guides.
+
+Another useful resources:
+
+- [Resend documentation](https://resend.com/docs/send-with-nextauth-smtp)
 
 Happy emailing, and here's to the success of your SaaS project!
