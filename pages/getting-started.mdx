@@ -67,6 +67,21 @@ For detailed instructions and alternatives, refer to [Next Auth's documentation]
 
 **Step 5: Database Configuration**
 
+You can configure your database using either Supabase or PostgreSQL. Choose the option that best fits your project requirements.
+
+**Option 1: Using Supabase**
+If you are using Supabase for your database, please follow this [guide](https://supabase.com/partners/integrations/prisma) to set up your Supabase project.
+
+Basically, after you have your Supabase project set up, you will need to set the following environment variables in your `.env` file:
+
+```bash
+DATABASE_URL="postgres://your-user-that-you-want:your-password-that-you-want@pooler.supabase.com:your-given-port/your-db-that-you-want?schema=public"
+```
+
+Please follow the documentation to get the correct values for your Supabase project.
+
+**Option 2: Using PostgreSQL**
+
 Input your database credentials in the `.env` file. The default `docker-compose.yml` is set with the following placeholders; adjust according to your preferences:
 
 ```bash
